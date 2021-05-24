@@ -1,0 +1,274 @@
+@import "~bulma/sass/utilities/initial-variables";
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext,vietnamese");
+
+// Config vars
+// Kaldi logo brand color: #FD461E
+$kaldi-red: #d64000;
+$kaldi-red-invert: #fff;
+
+$blue: #1d4e89;
+$light-blue: #00b2ca;
+$family-sans-serif: Montserrat, "Open Sans", Helvetica, Arial, sans-serif;
+$family-primary: $family-sans-serif;
+
+$primary: $blue;
+$primary-invert: $kaldi-red-invert;
+$body-color: #333;
+$black: #2b2523;
+$navbar-background-color: $primary;
+$navbar-height: 4rem;
+$navbar-item-color: white;
+
+$full-width: 100vw;
+$magic-number: 0.09719;
+$clip-padding: calc($full-width * $magic-number);
+$skew-padding: calc(100vw * $magic-number);
+
+.hero {
+  transform: skewY(-6deg);
+  transform-origin: top left;
+  position: relative;
+  overflow: hidden;
+}
+.hero > * {
+  transform: skewY(6deg);
+}
+
+.scroll-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100px;
+}
+
+.scroll-container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.chevron {
+  position: absolute;
+  width: 28px;
+  height: 8px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 51%;
+  background: #fff;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+.text {
+  display: block;
+  margin-top: 90px;
+  margin-left: -40px;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.25;
+  animation: pulse 2s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}
+
+.navbar .navbar-menu {
+  box-shadow: none !important;
+}
+
+.content .taglist {
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  li {
+    padding: 0 2rem 1rem 0;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+  }
+}
+
+// Helper Classes
+.full-width-image-container {
+  width: 100vw;
+  height: 400px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: 2em -50vw;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-width-image {
+  width: 100vw;
+  height: 400px;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 16px 10px;
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 1.25;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: #cc3700;
+  text-align: center;
+  -webkit-box-shadow: inset 0 0 0 2px #cc3700;
+  box-shadow: inset 0 0 0 2px #f40;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+}
+
+.margin-top-0 {
+  margin-top: 0 !important;
+}
+
+.navbar-item .icon {
+  color: $primary;
+  // Override for use of svg's from https://simpleicons.org/
+  .icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+  }
+  .navbar-brand .navbar-item.logo {
+    padding: 0 1rem;
+  }
+  footer.footer {
+    padding: 3rem 0rem 0rem;
+    background-color: transparent;
+  }
+}
+
+//Menu overrides
+$menu-item-color: $white-ter;
+$menu-item-hover-color: $black !important;
+$menu-item-hover-background-color: $black;
+$menu-item-active-color: $kaldi-red-invert;
+$menu-item-active-background-color: $kaldi-red-invert;
+$menu-list-border-left: 1px solid $kaldi-red-invert;
+$menu-label-color: $white-ter;
+
+.menu-label {
+  font-size: 1em !important;
+  text-align: left;
+}
+.menu-list {
+  list-style: none !important;
+  text-align: left;
+}
+.social {
+  padding: 2em;
+}
+.social a {
+  padding: 0.5em 0.5em 0.3em 0.5em;
+  border-radius: 1em;
+  background-color: $white-ter;
+  margin: 0.5em;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  display: inline;
+}
+
+// blog roll
+.blog-list-item.is-featured {
+  background-color: #d6400033;
+}
+.blog-list-item header {
+  display: flex;
+  margin-bottom: 1em;
+}
+.blog-list-item .featured-thumbnail {
+  flex-basis: 35%;
+  margin: 0 1.5em 0 0;
+}
+
+@import "~bulma";
+
+// responsiveness
++ tablet-only {
+  .blog-list-item .featured-thumbnail {
+    flex-basis: 50%;
+  }
+}
++ mobile {
+  .blog-list-item header {
+    display: block;
+  }
+  .blog-list-item .featured-thumbnail {
+    text-align: center;
+    max-width: 70%;
+    margin: 0 0 1em;
+  }
+}
