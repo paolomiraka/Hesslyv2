@@ -43,14 +43,7 @@
     "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "//": "========= PRIVATE SCRIPTS =========",
-    "publish": "npm run _clean && npm run _build && npm run _encrypt && npm run _envDeploy",
-		"_clean": "gatsby clean",
-		"_build": "gatsby build",
-		"_encrypt": "npx staticrypt public/index.html passWord -o public/index.html",
-		"_deploy": "npx netlify-cli deploy --dir=public --prod",
-		"_envDeploy": "NETLIFY_SITE_ID=251966b9-be32-471c-9be5-c3b4ba7e4dbd NETLIFY_AUTH_TOKEN=1hrq2xXnFC-gr_nQth_TRQT16-5iNQLjE6z_hT7qMbash -c 'npm run _deploy'"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "prettier": "^2.0.5"
