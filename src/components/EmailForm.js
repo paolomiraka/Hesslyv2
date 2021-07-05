@@ -23,7 +23,7 @@ const EmailListForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.EmailListForm}>
-      <h2>Subscribe</h2>
+      <h2>Subscribe to our newsletter</h2>
       <div className={styles.Wrapper}>
         <input
           placeholder="Email address"

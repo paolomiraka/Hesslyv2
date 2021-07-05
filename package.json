@@ -50,7 +50,7 @@
 		"_build": "gatsby build",
 		"_encrypt": "npx staticrypt public/index.html passWord -o public/index.html",
 		"_deploy": "npx netlify-cli deploy --dir=public --prod",
-		"_envDeploy": "NETLIFY_SITE_ID=251966b9-be32-471c-9be5-c3b4ba7e4dbd NETLIFY_AUTH_TOKEN=1hrq2xXnFC-gr_nQth_TRQT16-5iNQLjE6z_hT7qMOo bash -c 'npm run _deploy'"
+		"_envDeploy": "NETLIFY_SITE_ID=251966b9-be32-471c-9be5-c3b4ba7e4dbd NETLIFY_AUTH_TOKEN=1hrq2xXnFC-gr_nQth_TRQT16-5iNQLjE6z_hT7qMbash -c 'npm run _deploy'"
   },
   "devDependencies": {
     "prettier": "^2.0.5"
