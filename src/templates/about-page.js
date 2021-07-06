@@ -3,15 +3,21 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import GoogleMapReact from 'google-map-react';
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
+
+  const defaultProps = {
+    center: { lat: 40.73, lng: -73.93 },
+    zoom: 12
+  }
 
   return (
     <section className="section section--gradient">
       <div className="container">
         <div className="columns">
-          <div className="column is-10 is-offset-1">
+          <div className="column is-2">
             <div className="section">
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
@@ -19,6 +25,18 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
               <PageContent className="content" content={content} />
             </div>
           </div>
+          <div className="column is-2">
+            <GoogleMapReact
+              bootstrapURLKeys={{
+                key: 'AIzaSyCDSHAzpfjvk2DMA3nUckPw8pOIVpicc4A',
+                language: 'en'
+              }}
+              defaultProps={defaultProps}
+              defaultCenter={defaultProps.center}
+              center={defaultProps.center}
+              defaultZoom={defaultProps.zoom}
+            />
+            </div>
         </div>
       </div>
     </section>

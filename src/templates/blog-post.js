@@ -10,7 +10,7 @@ export const BlogPostTemplate = ({
   content,
   contentComponent,
   description,
-  tags,
+  categories,
   title,
   helmet,
 }) => {
@@ -27,13 +27,13 @@ export const BlogPostTemplate = ({
             </h1>
             <p>{description}</p>
             <PostContent content={content} />
-            {tags && tags.length ? (
+            {categories && categories.length ? (
               <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
+                <h4>Categories</h4>
                 <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                  {categories.map((category) => (
+                    <li key={cat + `category`}>
+                      <Link to={`/categories/${kebabCase(category)}/`}>{category}</Link>
                     </li>
                   ))}
                 </ul>
@@ -72,7 +72,7 @@ const BlogPost = ({ data }) => {
             />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
+        category={post.frontmatter.category}
         title={post.frontmatter.title}
       />
     </Layout>
@@ -96,7 +96,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         title
         description
-        tags
+        categories
       }
     }
   }
